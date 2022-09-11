@@ -61,34 +61,27 @@ const ProductDetails = ({ product, products }) => {
                 <p>{details}</p>
                 <p className="price">${price}</p>
                 {/* is quantity needed? */}
-                <div className="quantity">
+                {/* <div className="quantity">
                     <h3>Quantity:</h3>
                     <p className="quantity-desc">
                     <span className="minus" ><AiOutlineMinus /></span>
                     <span className="num">0</span>
                     <span className="plus" o><AiOutlinePlus /></span>
                     </p>
-                </div>
+                </div> */}
                 {/* TODO: add size selector */}
-                <FormControl style={{minWidth: 300}}>
-                <InputLabel id="demo-simple-select-label">Choose Size</InputLabel>
+                {/* TODO: add padding */}
+                <FormControl style={{minWidth: 300, textAlign:"center", padding: 10}}>
+                <InputLabel id="demo-simple-select-label" style={{padding: 10}}>Choose Size</InputLabel>
                     <Select
                         labelId="demo-simple-select-label"
-                        id="selectBreed"
+                        id="selectSize"
                         value={sizeSelected}
-                        defaultValue={5}
-                        label="Dog Breed"
-                        // onChange={handleChange}
+                        // defaultValue={5}
+                        label="Select Size"
+                        onChange={handleChange}
                     >
-                        {sizes.map(
-                            size => {
-                            return <MenuItem 
-                            key={size} 
-                            value={size}
-                            >
-                                {size}
-                            </MenuItem>
-                        })}
+                        {sizeRows}
                     </Select>
                 </FormControl>
                 <div className="buttons">
