@@ -8,6 +8,11 @@ import { Product } from '../../components';
 const ProductDetails = ({ product, products }) => {
     const { image, name, details, price } = product;
     const [index, setIndex] = useState(0);
+
+    const [sizes, setSizes] = useState([
+       6, 7, 8, 9, 10, 11, 12, 13, 14, 15 
+    ])
+    const [sizeSelected, setSizeSelected] = useState(8)
   return (
     <div>
         <div className="product-detail-container">
@@ -46,6 +51,26 @@ const ProductDetails = ({ product, products }) => {
                     </p>
                 </div>
                 {/* TODO: add size selector */}
+                {/* <FormControl style={{minWidth: 300}}>
+                <InputLabel id="demo-simple-select-label">{!selectedBreed && "Select "} Dog Breed</InputLabel>
+                    <Select
+                        labelId="demo-simple-select-label"
+                        id="selectBreed"
+                        value={selectedSize}
+                        label="Dog Breed"
+                        // onChange={handleChange}
+                    >
+                        {sizes.map(
+                            size => {
+                            <MenuItem 
+                            key={size} 
+                            value={size}
+                            >
+                                {size}
+                            </MenuItem>
+                        })}
+                    </Select>
+                </FormControl> */}
                 <div className="buttons">
                     <button type="button" className="add-to-cart" >Add to Cart</button>
                     <button type="button" className="buy-now" >Buy Now</button>
