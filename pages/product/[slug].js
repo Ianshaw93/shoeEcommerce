@@ -7,27 +7,41 @@ import {
 
 import { client, urlFor } from '../../lib/client';
 import { Product } from '../../components';
+import { useEffect } from 'react';
 
 
 
 const ProductDetails = ({ product, products }) => {
-    const { image, name, details, price } = product;
+    console.log(product)
+    const { image, name, details, price, 
+        quantitySize6, quantitySize7, quantitySize8,
+        quantitySize9, quantitySize10, quantitySize11, 
+        quantitySize12
+} = product;
     const [index, setIndex] = useState(0);
 
     const [sizes, setSizes] = useState([
-       6, 7, 8, 9, 10, 11, 12, 13, 14, 15 
+       6, 7, 8, 9, 10, 11, 12 
     ])
+
+    const [sizesArray, setSizeArray] = useState([
+        quantitySize6, quantitySize7, quantitySize8,
+        quantitySize9, quantitySize10, quantitySize11, 
+        quantitySize12
+    ])
+
+    // useeffect to calc if 
+
+
     const [sizeSelected, setSizeSelected] = useState(8)
 
     const handleChange = (event) => {
         setSizeSelected(event.target.value)
     }
 
-    const sizeRows = sizes.map(size => {
-       return (<MenuItem 
-        key={size} 
-        value={size}
-        >
+    const sizeRows = sizes.map((size, index)=> {
+       return (sizesArray[index] > 0 && 
+       <MenuItem key={size} value={size}>
             {size}
         </MenuItem>)
     })
@@ -60,24 +74,13 @@ const ProductDetails = ({ product, products }) => {
                 <h4>Details: </h4>
                 <p>{details}</p>
                 <p className="price">${price}</p>
-                {/* is quantity needed? */}
-                {/* <div className="quantity">
-                    <h3>Quantity:</h3>
-                    <p className="quantity-desc">
-                    <span className="minus" ><AiOutlineMinus /></span>
-                    <span className="num">0</span>
-                    <span className="plus" o><AiOutlinePlus /></span>
-                    </p>
-                </div> */}
-                {/* TODO: add size selector */}
-                {/* TODO: add padding */}
+                {/* TODO: size to affect stock */}
                 <FormControl style={{minWidth: 300, textAlign:"center", padding: 10}}>
                 <InputLabel id="demo-simple-select-label" style={{padding: 10}}>Choose Size</InputLabel>
                     <Select
                         labelId="demo-simple-select-label"
                         id="selectSize"
                         value={sizeSelected}
-                        // defaultValue={5}
                         label="Select Size"
                         onChange={handleChange}
                     >

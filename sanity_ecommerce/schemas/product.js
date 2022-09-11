@@ -36,5 +36,47 @@ export default {
             title: 'Details',
             type: 'string',
         },
+        {
+            title: 'QuantitySize6',
+            name: 'quantitySize6',
+            type: 'number',
+            validation: Rule => Rule.required().positive().integer()
+          },
+        {
+        title: 'QuantitySize7',
+        name: 'quantitySize7',
+        type: 'number',
+        validation: Rule => Rule.required().positive().integer()
+        },
+        {
+            title: 'QuantitySize8',
+            name: 'quantitySize8',
+            type: 'number',
+            validation: Rule => Rule.required().positive().integer()
+          },
+        {
+        title: 'QuantitySize9',
+        name: 'quantitySize9',
+        type: 'number',
+        validation: Rule => Rule.required().positive().integer()
+        },
+        {
+        title: 'QuantitySize10',
+        name: 'quantitySize10',
+        type: 'number',
+        validation: Rule => Rule.required().positive().integer()
+        },
+        {
+            title: 'QuantitySize11',
+            name: 'quantitySize11',
+            type: 'number',
+            validation: Rule => Rule.required().positive().integer()
+        },
+        {
+        title: 'QuantitySize12',
+        name: 'quantitySize12',
+        type: 'number',
+        validation: Rule => Rule.required().positive().integer()
+        },
     ]
 }
