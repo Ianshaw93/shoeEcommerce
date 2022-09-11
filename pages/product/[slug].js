@@ -1,8 +1,13 @@
 import React, { useState } from 'react'
 import { AiOutlineMinus, AiOutlinePlus, AiFillStar, AiOutlineStar } from 'react-icons/ai';
+import {
+    FormControl, InputLabel, Select, MenuItem, 
+    Typography, Rating, Box, Card, Grid 
+  } from "@mui/material"
 
 import { client, urlFor } from '../../lib/client';
 import { Product } from '../../components';
+
 
 
 const ProductDetails = ({ product, products }) => {
@@ -13,6 +18,20 @@ const ProductDetails = ({ product, products }) => {
        6, 7, 8, 9, 10, 11, 12, 13, 14, 15 
     ])
     const [sizeSelected, setSizeSelected] = useState(8)
+
+    const handleChange = (event) => {
+        setSizeSelected(event.target.value)
+    }
+
+    const sizeRows = sizes.map(size => {
+       return (<MenuItem 
+        key={size} 
+        value={size}
+        >
+            {size}
+        </MenuItem>)
+    })
+
   return (
     <div>
         <div className="product-detail-container">
@@ -51,18 +70,19 @@ const ProductDetails = ({ product, products }) => {
                     </p>
                 </div>
                 {/* TODO: add size selector */}
-                {/* <FormControl style={{minWidth: 300}}>
-                <InputLabel id="demo-simple-select-label">{!selectedBreed && "Select "} Dog Breed</InputLabel>
+                <FormControl style={{minWidth: 300}}>
+                <InputLabel id="demo-simple-select-label">Choose Size</InputLabel>
                     <Select
                         labelId="demo-simple-select-label"
                         id="selectBreed"
-                        value={selectedSize}
+                        value={sizeSelected}
+                        defaultValue={5}
                         label="Dog Breed"
                         // onChange={handleChange}
                     >
                         {sizes.map(
                             size => {
-                            <MenuItem 
+                            return <MenuItem 
                             key={size} 
                             value={size}
                             >
@@ -70,7 +90,7 @@ const ProductDetails = ({ product, products }) => {
                             </MenuItem>
                         })}
                     </Select>
-                </FormControl> */}
+                </FormControl>
                 <div className="buttons">
                     <button type="button" className="add-to-cart" >Add to Cart</button>
                     <button type="button" className="buy-now" >Buy Now</button>
