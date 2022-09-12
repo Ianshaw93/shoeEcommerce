@@ -33,7 +33,7 @@ const ProductDetails = ({ product, products }) => {
     // useeffect to calc if 
 
 
-    const [sizeSelected, setSizeSelected] = useState(8)
+    const [sizeSelected, setSizeSelected] = useState(sizes[0])
 
     const handleChange = (event) => {
         setSizeSelected(event.target.value)
@@ -93,7 +93,6 @@ const ProductDetails = ({ product, products }) => {
                 </div>
             </div>
         </div>
-        // Product
         <div className="maylike-products-wrapper">
           <h2>You may also like</h2>
           <div className="marquee">

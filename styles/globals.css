@@ -224,6 +224,8 @@ text-align: end;
 .banner-desc{
   display: flex ;
   justify-content: space-between;
+  width: 100%;
+  z-index: -115;
 }
 .banner-desc button{
   border-radius: 15px;
@@ -243,16 +245,27 @@ text-align: end;
 }
 .banner-desc .left p{
   margin:18px;
+  z-index: 10;
 }
 .footer-banner-image{
   position: absolute;
-  /* top: -35%;
-  left: 8%; */
-  top: -25%;
-  left: 25%;
+  top: -35%;
+  left: 8%;
+  z-index: 0;
+  /* top: -25%;
+  left: 25%; */
 }
+.banner-desc .center {
+  display: block;
+  margin-left: 0;
+  margin-right: auto;
+  z-index: 0;
+
+}
+
 .banner-desc .right{
   line-height: 1.4;
+  z-index: 10;
 }
 .banner-desc .right h3{
   font-weight: 800;
